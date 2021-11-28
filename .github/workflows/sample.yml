@@ -1,0 +1,32 @@
+name: Shell commands
+on: [push]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files
+        run: |
+          echo "First Step from run-github-actions"
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+      - name: Second step
+        run: | 
+          echo "Second step from run-github-actions"
+          pwd
+          ls -a    
+          
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        run: |
+          echo "Bulding"
+          pwd
+          ls -a
+
+
+
